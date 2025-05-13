@@ -1,0 +1,12 @@
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://clio0v71l6rmn"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_sopke"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_05ryk"]
+texture = SubResource("CompressedTexture2D_sopke")
+margins = Vector2i(29, 33)
+separation = Vector2i(1, 1)
+texture_region_size = Vector2i(32, 32)
+
+[resource]
+sources/0 = SubResource("TileSetAtlasSource_05ryk")
