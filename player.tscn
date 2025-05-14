@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://cpoxa6diegcbu"]
+
+[ext_resource type="Script" path="res://Player.gd" id="1_tlxyn"]
+[ext_resource type="SpriteFrames" uid="uid://bavcwmrhmt1o2" path="res://new_sprite_frames.tres" id="2_5hd40"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7jjat"]
+size = Vector2(20, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0pn02"]
+size = Vector2(8, 8)
+
+[node name="Player" type="RigidBody2D"]
+position = Vector2(115, 525)
+lock_rotation = true
+script = ExtResource("1_tlxyn")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_5hd40")
+animation = &"playeridle"
+frame_progress = 0.308573
+metadata/_edit_lock_ = true
+
+[node name="GroundCollision" type="CollisionShape2D" parent="."]
+position = Vector2(1, 13)
+shape = SubResource("RectangleShape2D_7jjat")
+metadata/_edit_lock_ = true
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(1, 8)
+shape = SubResource("RectangleShape2D_0pn02")
+
+[node name="dashwindow" type="Timer" parent="."]
+wait_time = 0.4
+one_shot = true
+
+[node name="PlayerHP" type="ProgressBar" parent="."]
+modulate = Color(1, 0, 0, 1)
+offset_left = -30.0
+offset_top = -42.0
+offset_right = 34.0
+offset_bottom = -15.0
+value = 100.0
+
+[connection signal="timeout" from="dashwindow" to="." method="_on_dashwindow_timeout"]
