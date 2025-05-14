@@ -1,0 +1,6 @@
+I've certainly got a lot to discuss regarding this project. A lot of things wen wrong, but I learned a ton from it. Immediately, Git management comes to mind. I at one point accidentally pushed to the wrong repository, and had to spend a while researching how to (and actually executing on) repairing the histories of both. Beyond that, however, I'd consider my present game almost unrecognizable from my design document. I don't view that as a flaw with the game, but emblematic of a lack of foresight in my document.
+With that preamble out of the way, I'd like to discuss my *present* discussion of the theme. My design document stretched me far too thin - with this game, I've selected a simple excerpt from it. That excerpt is, in this case, a fight against your cursor. I think this connects to the theme of everything being alive quite directly - one expects to control their own cursor, so it's a surprise to have to have it moving on its own/working against you.
+
+The controls of the game are quite simple - wasd/arrow keys to move, double tap a direction to dash, and left click to place blocks... when you have control of your mouse!
+
+My github repository is linked here: https://github.com/Korimer/godofoclass

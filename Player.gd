@@ -5,6 +5,7 @@ extends RigidBody2D
 var dashwindow: Timer
 var candash = false
 var dashdir
+var canjump = true
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	dashwindow = get_node("dashwindow")
@@ -13,9 +14,10 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	var direction = Vector2.ZERO
+	if self.linear_velocity.y > 0: canjump = true
 	if Input.is_action_just_pressed("ui_right"):
 		if (candash && dashdir):
-			apply_impulse(Vector2.RIGHT*1000)
+			apply_impulse(Vector2.RIGHT*500)
 			print("dashed right")
 			candash = false
 		else:
@@ -25,7 +27,7 @@ func _physics_process(delta):
 			dashwindow.start()
 	if Input.is_action_just_pressed("ui_left"):
 		if (candash && !dashdir):
-			apply_impulse(Vector2.LEFT*1000)
+			apply_impulse(Vector2.LEFT*500)
 			print('dashed left')
 			candash = false
 		else:
@@ -34,7 +36,9 @@ func _physics_process(delta):
 			candash = true
 			dashwindow.start()
 	if Input.is_action_just_pressed("ui_up"):
-		apply_impulse(Vector2.UP*500,direction)
+		if canjump:	
+			canjump = false
+			apply_impulse(Vector2.UP*500,direction)
 	
 	if Input.is_action_pressed("ui_left"):
 		direction.x -= 1
@@ -42,7 +46,3 @@ func _physics_process(delta):
 		direction.x += 1
 	
 	move_and_collide(direction)
-
-func _on_dashwindow_timeout():
-	candash = false
-	print("timeout")

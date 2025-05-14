@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bcsxujp3m4unj"]
+[gd_scene load_steps=7 format=3 uid="uid://bcsxujp3m4unj"]
 
 [ext_resource type="Texture2D" uid="uid://chig3t1m80yr" path="res://TEMP_tileset.bmp" id="1_5flqi"]
+[ext_resource type="Script" path="res://entitymanager.gd" id="1_nf1q1"]
 [ext_resource type="PackedScene" uid="uid://cpoxa6diegcbu" path="res://player.tscn" id="2_3esiy"]
 [ext_resource type="PackedScene" uid="uid://cy2631eait5qm" path="res://mouse.tscn" id="4_friir"]
 
@@ -240,6 +241,7 @@ texture_region_size = Vector2i(32, 32)
 6:4/0/terrain = 0
 6:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 6:4/0/physics_layer_0/angular_velocity = 0.0
+6:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-7.625, -7.25, 8.625, -7.5, 8.375, 7.75, -7.125, 7.75)
 7:4/0 = 0
 7:4/0/terrain_set = 0
 7:4/0/terrain = 0
@@ -444,6 +446,7 @@ terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_3etcx")
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_nf1q1")
 
 [node name="TileMap" type="TileMap" parent="."]
 unique_name_in_owner = true
@@ -455,4 +458,10 @@ layer_0/tile_data = PackedInt32Array(0, 458752, 1, 65536, 458752, 2, 131072, 458
 [node name="Player" parent="." instance=ExtResource("2_3esiy")]
 unique_name_in_owner = true
 
-[node name="mouse" parent="." instance=ExtResource("4_friir")]
+[node name="TrueMouse" parent="." instance=ExtResource("4_friir")]
+unique_name_in_owner = true
+
+[node name="SpawnNewMouse" type="Timer" parent="."]
+wait_time = 45.0
+
+[node name="GameEnd" type="Timer" parent="."]

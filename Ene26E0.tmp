@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://chcebyla4kgrm"]
+
+[ext_resource type="Texture2D" uid="uid://c17oae5fh6li0" path="res://mouse.png" id="1_jngcx"]
+[ext_resource type="Script" path="res://EnemyMouse.gd" id="1_u1jvl"]
+
+[node name="EnemyMouse" type="Sprite2D"]
+texture = ExtResource("1_jngcx")
+script = ExtResource("1_u1jvl")

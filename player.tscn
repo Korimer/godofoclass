@@ -43,4 +43,4 @@ offset_right = 34.0
 offset_bottom = -15.0
 value = 100.0
 
-[connection signal="timeout" from="dashwindow" to="." method="_on_dashwindow_timeout"]
+[node name="jumpwindow" type="Timer" parent="."]
